@@ -1,3 +1,4 @@
+"use server";
 import { Footer } from "@repo/ui/components/footer";
 import { TechStack } from "@repo/ui/components/tech-stack";
 import { Metadata } from "next";
@@ -16,7 +17,8 @@ function getProjectData(slug: string): ProjectType | undefined {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = getProjectData(params.slug);
+  const { slug } = await params;
+  const project = getProjectData(slug);
 
   return {
     metadataBase: new URL("https://timrodz.dev"),
@@ -37,8 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function Page({ params }: Props) {
-  const project = getProjectData(params.slug);
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const project = getProjectData(slug);
 
   if (!project) {
     return (
@@ -56,6 +59,10 @@ export default function Page({ params }: Props) {
       </main>
     );
   }
+
+  const otherProjectsToShowcase = shuffle(
+    projects.filter((p) => p.slug !== slug),
+  ).slice(0, 3);
 
   return (
     <main>
@@ -106,30 +113,28 @@ export default function Page({ params }: Props) {
         </div>
         <h3 className="mt-20">See my other projects 👇</h3>
         <div className="mt-4 flex flex-col md:flex-row gap-10 md:gap-4">
-          {shuffle(projects.filter((p) => p.slug !== params.slug))
-            .slice(0, 3)
-            .map((p) => (
-              <div
-                key={p.slug}
-                className="rounded-t-lg bg-white rounded shadow-lg"
-              >
+          {otherProjectsToShowcase.map((p) => (
+            <div
+              key={p.slug}
+              className="rounded-t-lg bg-white rounded shadow-lg"
+            >
+              <Link href={`/projects/${p.slug}`}>
+                <Image
+                  width={400}
+                  height={300}
+                  src={p.imageUrl}
+                  alt={p.imageAlt}
+                  className="rounded-t-md w-full"
+                />
+              </Link>
+              <div className="p-4">
+                <h4 className="my-1">{p.title}</h4>
                 <Link href={`/projects/${p.slug}`}>
-                  <Image
-                    width={400}
-                    height={300}
-                    src={p.imageUrl}
-                    alt={p.imageAlt}
-                    className="rounded-t-md w-full"
-                  />
+                  Click here to learn more
                 </Link>
-                <div className="p-4">
-                  <h4 className="my-1">{p.title}</h4>
-                  <Link href={`/projects/${p.slug}`}>
-                    Click here to learn more
-                  </Link>
-                </div>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
         <div className="flex items-center justify-start lg:justify-center mb-4">
           <Link href="/" className="cta inline-block mt-20">
@@ -143,7 +148,7 @@ export default function Page({ params }: Props) {
 }
 
 const shuffle = (array: ProjectType[]): ProjectType[] => {
-  const arr = structuredClone(array);
+  const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     // TODO: FIX

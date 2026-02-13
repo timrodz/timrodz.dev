@@ -31,9 +31,9 @@ export function AboutSection() {
           "https://docs.google.com/document/d/1SVf7G72m6miHjatK2mqOHYSvPPMcA991agUyubH33iU/edit?usp=sharing"
         }
         target="_blank"
-        className="cta text-center block lg:inline-block mt-6"
+        className="cta text-center inline-block mt-6"
       >
-        Click here to download my resume!
+        download my resume
       </Link>
       <SocialStack socials={socials} />
       <CompAbout />
