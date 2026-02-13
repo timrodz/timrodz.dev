@@ -1,10 +1,12 @@
+import "@repo/ui/styles.css";
+import "./globals.css";
+
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import {
   Geist as SansFont,
   JetBrains_Mono as MonoFont,
 } from "next/font/google";
-import "./globals.css";
 import { baseUrl } from "./sitemap";
 import { Footer } from "@repo/ui/components/footer";
 import { cx } from "@repo/ui/utils/classNames";

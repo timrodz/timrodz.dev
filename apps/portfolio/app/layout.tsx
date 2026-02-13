@@ -1,3 +1,6 @@
+import "@repo/ui/styles.css";
+import "./globals.css";
+
 import { cx } from "@repo/ui/utils/classNames";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
@@ -6,7 +9,6 @@ import {
   Geist as SansFont,
 } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
 
 import { googleAnalyticsID, structuredData } from "../data";
 

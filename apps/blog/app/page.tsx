@@ -1,10 +1,11 @@
 import { Projects } from "~/components/projects";
 import { BlogPosts } from "~/components/posts";
+import { TitleName } from "@repo/ui/components/title";
 
 export default function Page() {
   return (
     <main>
-      <h1>Welcome 🦥</h1>
+      <TitleName />
       <hr />
       <p className="mb-4">
         {`I'm a Software Engineer with 7+ years of professional experience, primarily

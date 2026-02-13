@@ -3,7 +3,7 @@ import { PolaroidPhoto } from "./polaroid";
 export function About() {
   return (
     <div>
-      <h1>About me 👨🏽‍💻</h1>
+      <h2>About me 👨🏽‍💻</h2>
       <hr />
       <div className="flex flex-col gap-4">
         <p>
