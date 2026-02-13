@@ -1,6 +1,7 @@
 import { Projects } from "~/components/projects";
 import { BlogPosts } from "~/components/posts";
 import { TitleName } from "@repo/ui/components/title";
+import { Subtitle } from "@repo/ui/components/subtitle";
 
 export default function Page() {
   return (
@@ -15,9 +16,9 @@ export default function Page() {
           have experience with leading developer small teams.`}
       </p>
       <div className="my-8">
-        <h2>Blog posts</h2>
+        <Subtitle>Blog posts</Subtitle>
         <BlogPosts />
-        <h2>Projects</h2>
+        <Subtitle>Projects</Subtitle>
         <Projects />
       </div>
     </main>

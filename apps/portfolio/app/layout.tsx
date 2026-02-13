@@ -1,8 +1,8 @@
 import "@repo/ui/styles.css";
 import "./globals.css";
 
-import { cx } from "@repo/ui/utils/classNames";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { cx } from "@repo/ui/utils/classNames";
 import type { Metadata } from "next";
 import {
   JetBrains_Mono as MonoFont,

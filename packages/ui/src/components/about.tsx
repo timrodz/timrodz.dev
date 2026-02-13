@@ -1,9 +1,11 @@
 import { PolaroidPhoto } from "./polaroid";
+import { Subtitle } from "./subtitle";
+import { Title } from "./title";
 
 export function About() {
   return (
     <div>
-      <h2>About me 👨🏽‍💻</h2>
+      <Title>About me 👨🏽‍💻</Title>
       <hr />
       <div className="flex flex-col gap-4">
         <p>

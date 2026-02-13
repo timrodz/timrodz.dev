@@ -16,8 +16,9 @@ type Props = {
   params: { slug: string };
 };
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug: querySlug } = await params;
+  const post = getBlogPosts().find((post) => post.slug === querySlug);
   if (!post) {
     return {};
   }
@@ -58,9 +59,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function Blog({ params }: Props) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
-
+export default async function Blog({ params }: Props) {
+  const { slug: querySlug } = await params;
+  const post = getBlogPosts().find((post) => post.slug === querySlug);
   if (!post) {
     notFound();
   }
@@ -69,7 +70,7 @@ export default function Blog({ params }: Props) {
 
   return (
     <main>
-      <script
+      {/*<script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -90,7 +91,7 @@ export default function Blog({ params }: Props) {
             },
           }),
         }}
-      />
+      />*/}
       <h1 className="title font-bold text-3xl md:text-5xl">{metadata.title}</h1>
       <hr />
       <div className="flex justify-between items-center mt-2 mb-8">

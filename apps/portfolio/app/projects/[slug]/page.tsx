@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { projects, ProjectType, socials } from "data";
-import { Socials } from "@repo/ui/components/social-stack";
+import { SocialStack } from "@repo/ui/components/social-stack";
 
 type Props = {
   params: { slug: string };
@@ -50,7 +50,7 @@ export default function Page({ params }: Props) {
           </Link>
           <div className="flex flex-col items-center justify-center gap-2">
             <h3>Or get in touch 👋</h3>
-            <Socials socials={socials} />
+            <SocialStack socials={socials} />
           </div>
         </div>
       </main>

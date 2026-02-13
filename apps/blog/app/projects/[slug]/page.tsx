@@ -1,3 +1,5 @@
+"use server";
+
 import { baseUrl } from "~/app/sitemap";
 import { getProjects } from "~/utils/mdx";
 import Image from "next/image";
@@ -19,8 +21,9 @@ type Props = {
   params: { slug: string };
 };
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getProjects().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug: querySlug } = await params;
+  const post = getProjects().find((post) => post.slug === querySlug);
   if (!post) {
     return {};
   }
@@ -65,8 +68,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function Blog({ params }: Props) {
-  const project = getProjects().find((project) => project.slug === params.slug);
+export default async function Blog({ params }: Props) {
+  const { slug: querySlug } = await params;
+  const project = getProjects().find((project) => project.slug === querySlug);
 
   if (!project) {
     notFound();
@@ -79,7 +83,7 @@ export default function Blog({ params }: Props) {
 
   return (
     <main>
-      <script
+      {/*<script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -100,7 +104,7 @@ export default function Blog({ params }: Props) {
             },
           }),
         }}
-      />
+      />*/}
       <h1 className="title font-bold text-3xl md:text-5xl">{metadata.title}</h1>
       <hr />
       <div className="fmt-2 mb-8 flex flex-col gap-4 text-neutral-600 dark:text-neutral-300">

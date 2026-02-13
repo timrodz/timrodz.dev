@@ -2,7 +2,7 @@ import { About as CompAbout } from "@repo/ui/components/about";
 import { TitleName } from "@repo/ui/components/title";
 import Link from "next/link";
 
-import { Socials } from "@repo/ui/components/social-stack";
+import { SocialStack } from "@repo/ui/components/social-stack";
 import { socials } from "data";
 
 export function AboutSection() {
@@ -11,7 +11,7 @@ export function AboutSection() {
       <TitleName />
       <hr />
       <p>
-        {`I'm a software engineer (7+ years of experience) & digital nomad based
+        {`I'm a software engineer (8+ years of experience) & digital nomad based
         in New Zealand, currently working with`}{" "}
         <Link href="https://www.the-boundary.com/" target="_blank">
           The Boundary
@@ -35,7 +35,7 @@ export function AboutSection() {
       >
         Click here to download my resume!
       </Link>
-      <Socials socials={socials} />
+      <SocialStack socials={socials} />
       <CompAbout />
     </section>
   );

@@ -1,5 +1,6 @@
 import { Projects } from "~/components/projects";
 import { Metadata } from "next";
+import { Title } from "@repo/ui/components/title";
 
 export const metadata: Metadata = {
   title: "Posts",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main>
-      <h1>Projects 🌿</h1>
+      <Title>Projects 🌿</Title>
       <hr />
       <Projects />
     </main>

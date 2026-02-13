@@ -1,25 +1,24 @@
 import { ArrowUpRightIcon } from "lucide-react";
-import { cx } from "../utils/classNames";
 
 interface SocialsProps {
   socials: { name: string; url: string }[];
   className?: string;
 }
 
-export function Socials({ socials }: SocialsProps) {
+export function SocialStack({ socials }: SocialsProps) {
   return (
-    <div className="ui:my-4">
-      <ul className="flex gap-4">
+    <div id="social-stack" className="my-4">
+      <ul className="flex flex-col md:flex-row gap-4">
         {socials.map(({ name, url }) => (
           <li key={`socials-${name}`}>
             <a
               rel="noopener noreferrer"
               target="_blank"
               href={url}
-              className="text-base flex gap-2"
+              className="text-base flex gap-1 items-center"
             >
-              <ArrowUpRightIcon className="size-2" />
-              <span className="ml-2">{name}</span>
+              <ArrowUpRightIcon className="size-4 inline-block" />
+              <span>{name}</span>
             </a>
           </li>
         ))}

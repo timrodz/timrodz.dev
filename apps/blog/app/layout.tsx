@@ -2,15 +2,15 @@ import "@repo/ui/styles.css";
 import "./globals.css";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
-import type { Metadata } from "next";
-import {
-  Geist as SansFont,
-  JetBrains_Mono as MonoFont,
-} from "next/font/google";
-import { baseUrl } from "./sitemap";
 import { Footer } from "@repo/ui/components/footer";
 import { cx } from "@repo/ui/utils/classNames";
+import type { Metadata } from "next";
+import {
+  JetBrains_Mono as MonoFont,
+  Geist as SansFont,
+} from "next/font/google";
 import { Navbar } from "~/components/navbar";
+import { baseUrl } from "./sitemap";
 
 // Font files can be colocated inside of `pages`
 const sans = SansFont({
