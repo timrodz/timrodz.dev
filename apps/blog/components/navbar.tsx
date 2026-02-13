@@ -1,4 +1,4 @@
-import { LinkCTA } from "@repo/ui/components/cta";
+import { LinkCTA } from "@repo/ui/components/link-cta";
 import Link from "next/link";
 
 const NAV_ITEMS: { name: string; href: string }[] = [
