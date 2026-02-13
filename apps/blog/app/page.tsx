@@ -1,7 +1,7 @@
-import { Projects } from "~/components/projects";
-import { BlogPosts } from "~/components/posts";
-import { TitleName } from "@repo/ui/components/title";
 import { Subtitle } from "@repo/ui/components/subtitle";
+import { TitleName } from "@repo/ui/components/title";
+import { BlogPosts } from "~/components/posts";
+import { Projects } from "~/components/projects";
 
 export default function Page() {
   return (

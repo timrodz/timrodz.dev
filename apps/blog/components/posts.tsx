@@ -2,11 +2,11 @@ import { getBlogPosts } from "~/utils/mdx";
 import Link from "next/link";
 
 export function BlogPosts() {
-  const allBlogsPosts = getBlogPosts();
+  const blogsPosts = getBlogPosts();
 
   return (
     <div className="mb-8">
-      {allBlogsPosts
+      {blogsPosts
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)

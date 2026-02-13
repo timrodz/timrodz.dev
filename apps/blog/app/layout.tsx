@@ -11,6 +11,8 @@ import {
 } from "next/font/google";
 import { Navbar } from "~/components/navbar";
 import { baseUrl } from "./sitemap";
+import { ThemeProvider } from "@repo/ui/components/theme-provider";
+import { LayoutContainer } from "~/components/layout-container";
 
 // Font files can be colocated inside of `pages`
 const sans = SansFont({
@@ -52,20 +54,33 @@ export const metadata: Metadata = {
   },
 };
 
+const GOOGLE_ANALYTICS_ID = "UA-52663114-1";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(sans.variable, mono.variable)}>
-      <GoogleAnalytics gaId="UA-52663114-1" />
-      <body className="antialiased max-w-5xl mt-8 px-6 lg:px-10 mx-auto">
-        <div className="flex-auto min-w-0 mt-6 flex flex-col">
-          <Navbar />
-          <div>{children}</div>
-          <Footer />
-        </div>
+    <html
+      lang="en"
+      className={cx(sans.variable, mono.variable)}
+      suppressHydrationWarning
+    >
+      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+      <body className="antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LayoutContainer>
+            <Navbar />
+            {children}
+            <Footer />
+          </LayoutContainer>
+        </ThemeProvider>
       </body>
     </html>
   );

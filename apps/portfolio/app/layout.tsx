@@ -9,7 +9,8 @@ import {
   Geist as SansFont,
 } from "next/font/google";
 
-import { googleAnalyticsID } from "../data";
+import { GOOGLE_ANALYTICS_ID } from "../data";
+import { ThemeProvider } from "@repo/ui/components/theme-provider";
 
 const sans = SansFont({
   variable: "--font-sans",
@@ -43,9 +44,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cx(sans.variable, mono.variable)}>
-      <GoogleAnalytics gaId={googleAnalyticsID} />
-      <body className={"antialiased"}>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cx(sans.variable, mono.variable)}
+    >
+      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+      <body className={"antialiased"}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

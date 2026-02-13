@@ -1,3 +1,4 @@
+import { SocialLink } from "@repo/ui/components/social-stack";
 import Link from "next/link";
 
 export enum Technology {
@@ -34,22 +35,22 @@ export const TechnologyExternalUrl: Record<Technology, string> = {
   [Technology.Flask]: "",
 };
 
-export const socials = [
+export const socials: SocialLink[] = [
   {
     name: "Blog",
-    url: "https://blog.timrodz.dev",
+    href: "https://blog.timrodz.dev",
   },
   {
     name: "GitHub",
-    url: "https://github.com/timrodz",
+    href: "https://github.com/timrodz",
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/timrodz",
+    href: "https://www.linkedin.com/in/timrodz",
   },
   {
     name: "StackOverflow",
-    url: "https://stackoverflow.com/users/4329379/juan-morais",
+    href: "https://stackoverflow.com/users/4329379/juan-morais",
   },
 ];
 
@@ -74,7 +75,7 @@ export const seo = {
   foundingDate: "2019",
 };
 
-export const googleAnalyticsID = "UA-52663114-1";
+export const GOOGLE_ANALYTICS_ID = "UA-52663114-1";
 
 export type ProjectType = {
   title: string;

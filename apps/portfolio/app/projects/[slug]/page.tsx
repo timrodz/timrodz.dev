@@ -6,10 +6,26 @@ import Link from "next/link";
 
 import { projects, ProjectType, socials } from "data";
 import { SocialStack } from "@repo/ui/components/social-stack";
+import { PageContainer } from "~/components/page-container";
+
+import { PageNotFoundError } from "next/dist/shared/lib/utils";
+import { ArrowLeftIcon, ArrowUpRightIcon } from "lucide-react";
+import { LinkCTA } from "@repo/ui/components/cta";
 
 type Props = {
   params: { slug: string };
 };
+
+function shuffleArray(array: ProjectType[]): ProjectType[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    // TODO: FIX
+    // @ts-expect-error could be `ProjectType | undefined`
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
 function getProjectData(slug: string): ProjectType | undefined {
   return projects.find((p) => p.slug === slug);
@@ -44,29 +60,28 @@ export default async function Page({ params }: Props) {
 
   if (!project) {
     return (
-      <main>
-        <div className="pt-32 flex flex-col items-center justify-center gap-20 text-center">
+      <PageContainer>
+        <div className="flex flex-col items-center justify-center gap-20 text-center">
           <h2>Project not found</h2>
-          <Link href="/" className="cta inline-block">
-            Go back to main site
-          </Link>
+          <LinkCTA href="/" label="Go back to main site" icon={ArrowLeftIcon} />
           <div className="flex flex-col items-center justify-center gap-2">
             <h3>Or get in touch 👋</h3>
             <SocialStack socials={socials} />
           </div>
         </div>
-      </main>
+      </PageContainer>
     );
   }
 
-  const otherProjectsToShowcase = shuffle(
+  const otherProjectsToShowcase = shuffleArray(
     projects.filter((p) => p.slug !== slug),
   ).slice(0, 3);
 
   return (
-    <main>
-      <div className="max-w-3xl mx-4 md:mx-auto pt-20">
+    <PageContainer>
+      <section>
         <h1>{project.title}</h1>
+        <hr />
         <h2>Project Overview</h2>
         <ul className="list-disc ml-6">
           <li>Project type: {project.type}</li>
@@ -89,13 +104,13 @@ export default async function Page({ params }: Props) {
             </li>
           )}
         </ul>
-        <Link
+        <LinkCTA
           href={project.url}
           target="_blank"
-          className="cta inline-block mt-4"
-        >
-          Click here to see the project in action ✨
-        </Link>
+          label="Project website / demo"
+        />
+      </section>
+      <section>
         <h3>Summary</h3>
         <hr />
         <div className="flex flex-col gap-4 mb-4">{project.summary}</div>
@@ -107,17 +122,16 @@ export default async function Page({ params }: Props) {
             width={800 / 1.5}
             height={600 / 1.5}
             alt={project.imageAlt}
-            className="w-full md:w-3/4 rounded-lg shadow-md"
+            className="w-full md:w-3/4 rounded-lg border"
           />
         </div>
+      </section>
+      <section>
         <h3 className="mt-20">See my other projects 👇</h3>
         <div className="mt-4 flex flex-col md:flex-row gap-10 md:gap-4">
           {otherProjectsToShowcase.map((p) => (
-            <div
-              key={p.slug}
-              className="rounded-t-lg bg-white rounded shadow-lg"
-            >
-              <Link href={`/projects/${p.slug}`}>
+            <div key={p.slug} className="bg-card ring-border rounded border">
+              <div>
                 <Image
                   width={400}
                   height={300}
@@ -125,34 +139,19 @@ export default async function Page({ params }: Props) {
                   alt={p.imageAlt}
                   className="rounded-t-md w-full"
                 />
-              </Link>
+              </div>
               <div className="p-4">
                 <h4 className="my-1">{p.title}</h4>
-                <Link href={`/projects/${p.slug}`}>
-                  Click here to learn more
-                </Link>
+                <LinkCTA href={`/projects/${p.slug}`} subtle />
               </div>
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-start lg:justify-center mb-4">
-          <Link href="/" className="cta inline-block mt-20">
-            Back to main site
-          </Link>
-        </div>
-        <Footer />
+      </section>
+      <div className="flex items-center justify-start lg:justify-center mb-4">
+        <Link href="/">Back to main site</Link>
       </div>
-    </main>
+      <Footer />
+    </PageContainer>
   );
 }
-
-const shuffle = (array: ProjectType[]): ProjectType[] => {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    // TODO: FIX
-    // @ts-expect-error could be `ProjectType | undefined`
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-};

@@ -1,12 +1,17 @@
 import { PolaroidPhoto } from "./polaroid";
+import { Subtitle } from "./subtitle";
 import { Title } from "./title";
 
-export function About() {
+interface AboutProps {
+  asTitle?: boolean;
+}
+export function About({ asTitle = true }: AboutProps) {
+  const content = `About me 👨🏽‍💻`;
   return (
     <div>
-      <Title>About me 👨🏽‍💻</Title>
+      {asTitle ? <Title>{content}</Title> : <Subtitle>{content}</Subtitle>}
       <hr />
-      <div className="flex flex-col gap-4">
+      <div className="space-y-6">
         <p>
           {`Born in Chitré, Panamá 🇵🇦 in 1995, I’m somewhat of a cross between
           millennials and Gen Z’ers. That means I understand some of today’s
@@ -27,11 +32,11 @@ export function About() {
           Everything has a purpose; if it helps you solve a problem, that’s what
           matters.`}
         </p>
-      </div>
-      <p className="mt-6!">
-        {`P.S. I'm definitely not a robot 🤖 To prove it, here are some pictures
+        <p>
+          {`P.S. I'm definitely not a robot 🤖 To prove it, here are some pictures
         of me over the past few years!`}
-      </p>
+        </p>
+      </div>
       <div id="polaroid-gallery" className="polaroid-gallery">
         <PolaroidPhoto
           source="/pictures/mexico.webp"

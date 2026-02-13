@@ -53,7 +53,7 @@ function CustomLink(props: { href: string } & PropsWithChildren) {
 function RoundedImage(props: { alt: string; src: string }) {
   return (
     <Image
-      className="rounded-md shadow-xl"
+      className="rounded-md border"
       {...props}
       alt={props.alt}
       loading="lazy"
@@ -64,7 +64,7 @@ function RoundedImage(props: { alt: string; src: string }) {
 function RoundedImageColumn(props: { alt: string; src: string }) {
   return (
     <Image
-      className="rounded-md shadow-xl mb-10!"
+      className="rounded-md border mb-10!"
       {...props}
       alt={props.alt}
       loading="lazy"

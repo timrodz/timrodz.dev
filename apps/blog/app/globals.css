@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "@repo/tailwind-config";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 .prose .anchor {
   @apply absolute invisible no-underline;
@@ -36,7 +38,7 @@
 }
 
 .prose a {
-  @apply hover:underline underline-offset-2 decoration-teal-900 dark:decoration-teal-500 text-teal-800 hover:text-teal-950 dark:hover:text-white transition-all dark:text-white;
+  @apply underline-offset-2;
 }
 
 .prose .anchor:after {
@@ -72,7 +74,7 @@
 }
 
 .prose p {
-  @apply my-4 md:text-lg text-zinc-700 dark:text-neutral-200;
+  @apply my-4 md:text-lg;
 }
 
 .prose h1 {
@@ -80,15 +82,15 @@
 }
 
 .prose h2 {
-  @apply text-3xl font-bold mt-6 mb-2 hover:underline decoration-teal-900 dark:decoration-neutral-500 decoration-[0.1em];
+  @apply text-3xl font-bold mt-6 mb-2 decoration-[0.1em];
 }
 
 .prose h3 {
-  @apply text-2xl font-semibold mt-6 mb-2 hover:underline decoration-teal-900 dark:decoration-neutral-500 decoration-[0.1em];
+  @apply text-2xl font-semibold mt-6 mb-2 decoration-[0.1em];
 }
 
 .prose h4 {
-  @apply text-xl font-semibold mt-6 mb-2 hover:underline decoration-teal-900 dark:decoration-neutral-500 decoration-[0.1em];
+  @apply text-xl font-semibold mt-6 mb-2 decoration-[0.1em];
 }
 
 .prose strong {
@@ -104,7 +106,7 @@
 }
 
 .prose li {
-  @apply md:text-lg text-zinc-700 dark:text-neutral-200;
+  @apply md:text-lg;
 }
 
 .prose > :first-child {
@@ -139,8 +141,4 @@ table {
 
 .title {
   text-wrap: balance;
-}
-
-footer ul li a {
-  @apply font-mono;
 }

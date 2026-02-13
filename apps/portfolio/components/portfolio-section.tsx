@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TechStack } from "@repo/ui/components/tech-stack";
-import { projects, seo, type ProjectType } from "data";
+import { projects, ProjectType } from "data";
+import { LinkCTA } from "@repo/ui/components/cta";
 
 function Project({ project }: { project: ProjectType }) {
-  const url = `${seo.url}/projects/${project.slug}`;
+  const url = `/projects/${project.slug}`;
 
   return (
     <div id={`project-${project.slug}`}>
@@ -14,7 +15,7 @@ function Project({ project }: { project: ProjectType }) {
             {project.title}
           </Link>
         </h3>
-        <h4 className="text-zinc-500 font-light m-0">{project.type}</h4>
+        <h4 className="font-light m-0">{project.type}</h4>
       </div>
       <div className="project-container">
         <div className="project-image-container">
@@ -28,13 +29,7 @@ function Project({ project }: { project: ProjectType }) {
         </div>
         <div className="project-details">
           <div className="project-summary">{project.summary}</div>
-          <Link
-            href={url}
-            target="_blank"
-            className="text-lg font-medium block my-5 cta-subtle decoration-teal-700"
-          >
-            Click here to learn more
-          </Link>
+          <LinkCTA href={url} subtle />
           <TechStack technologies={project.technologies} />
         </div>
       </div>

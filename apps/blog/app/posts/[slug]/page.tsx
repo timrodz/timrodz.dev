@@ -5,9 +5,9 @@ import { baseUrl } from "~/app/sitemap";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const posts = getBlogPosts();
+  const blogPosts = getBlogPosts();
 
-  return posts.map((post) => ({
+  return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }

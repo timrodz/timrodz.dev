@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "~/components/mdx";
 import { TechStack } from "@repo/ui/components/tech-stack";
 import { Metadata } from "next";
+import { LinkCTA } from "@repo/ui/components/cta";
 
 export async function generateStaticParams() {
   const projects = getProjects();
@@ -126,7 +127,7 @@ export default async function Blog({ params }: Props) {
             width={600}
             height={0}
             alt={metadata.imageAlt}
-            className="rounded-lg shadow-xl"
+            className="rounded-lg border"
             priority
           />
         )}
@@ -135,15 +136,11 @@ export default async function Blog({ params }: Props) {
         <CustomMDX source={content} />
       </article>
       {metadata.url && (
-        <Link
+        <LinkCTA
           rel="noopener noreferrer"
           target="_blank"
           href={metadata.url}
-          className="cta inline-flex items-center gap-2 mt-6"
-        >
-          {/*<Arrow />*/}
-          Click here to see the project in action
-        </Link>
+        />
       )}
     </main>
   );

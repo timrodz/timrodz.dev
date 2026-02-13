@@ -1,28 +1,21 @@
-import { ArrowUpRightIcon } from "lucide-react";
+import { LinkCTA } from "./cta";
+
+export interface SocialLink {
+  name: string;
+  href: string;
+}
 
 interface SocialsProps {
-  socials: { name: string; url: string }[];
+  socials: SocialLink[];
   className?: string;
 }
 
-export function SocialStack({ socials }: SocialsProps) {
+export function SocialStack({ socials = [] }: SocialsProps) {
   return (
-    <div id="social-stack" className="my-4">
-      <ul className="flex flex-col md:flex-row gap-4">
-        {socials.map(({ name, url }) => (
-          <li key={`socials-${name}`}>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href={url}
-              className="text-base flex gap-1 items-center"
-            >
-              <ArrowUpRightIcon className="size-4 inline-block" />
-              <span>{name}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="my-8 flex flex-col md:flex-row gap-2 md:gap-3">
+      {socials.map(({ name, href }) => (
+        <LinkCTA key={href} href={href} label={name} subtle />
+      ))}
     </div>
   );
 }

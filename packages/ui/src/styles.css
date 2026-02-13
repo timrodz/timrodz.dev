@@ -1,125 +1,43 @@
 @import "tailwindcss";
 @import "@repo/tailwind-config";
 
-body {
-  --background: #fdfcfa;
-
-  background: var(--background);
-  max-width: 100%;
-  overflow-x: hidden;
-  @apply text-zinc-700;
-}
-
-canvas {
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: pixelated;
-  image-rendering: optimize-contrast;
-}
-
 h1 {
-  @apply text-3xl md:text-5xl text-teal-700 font-extrabold mb-5;
+  @apply text-4xl font-extrabold mb-4 text-primary;
 }
 
 h2 {
-  @apply text-3xl md:text-4xl text-teal-600 font-extrabold mt-4 mb-3;
+  @apply text-2xl md:text-3xl font-bold mt-4 mb-4 text-primary;
 }
 
 h3 {
-  @apply text-2xl md:text-3xl text-teal-700 font-bold mt-4 mb-3;
+  @apply text-xl md:text-2xl font-semibold mt-4 mb-4 text-secondary;
 }
 
 h4 {
-  @apply text-xl md:text-2xl text-teal-700 font-semibold mt-4 mb-3;
+  @apply text-lg font-semibold mt-4 mb-3;
 }
 
-p {
-  @apply text-zinc-700;
+a {
+  @apply hover:cursor-pointer hover:underline decoration-accent underline-offset-2 decoration-[0.1em] transition-all;
 }
 
 hr {
   @apply mb-6;
 }
 
-section {
-  @apply mt-20 md:mt-16;
-}
-
-a {
-  @apply text-teal-700 hover:underline decoration-orange-400 underline-offset-2 decoration-[0.1em];
-}
-
-ul {
-  @apply text-zinc-700;
-}
-
-header {
-  position: relative;
-  z-index: 0;
-
-  @apply h-screen lg:h-[200vh];
-}
-
 footer {
-  position: relative;
-  background-color: var(--background);
-  z-index: 10;
-
-  @apply mt-16 pb-20;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  @apply mt-10;
 }
 
 .cta {
-  @apply text-teal-700 bg-teal-50 ring-teal-600 ring-[1px] px-4 py-2 font-medium rounded-md decoration-teal-800 decoration-1;
+  @apply text-card-foreground bg-card ring-border ring-[1px] px-4 py-2 font-medium rounded-md hover:underline decoration-accent;
 }
 
 .cta-subtle {
-  @apply text-teal-700;
-}
-
-.hero-cta-container .cta {
-  @apply pointer-events-none animate-bounce;
-}
-
-.landing {
-  @apply max-w-5xl mx-auto px-6 pt-12;
-}
-
-#about p {
-  @apply mt-3 lg:mt-4;
-}
-
-#projects p {
-  @apply mb-4 lg:mb-3;
-}
-
-.socials div {
-  @apply my-6;
-}
-
-.socials div a {
-  @apply text-base text-stone-600 font-mono hover:underline inline-flex items-center transition-all hover:text-neutral-800;
-}
-
-.socials div ul li {
-  @apply flex flex-col md:flex-row gap-4;
-}
-
-.socials div a p {
-  @apply m-0 ml-2 h-7 text-base text-stone-600 transition-all hover:text-neutral-800;
-}
-
-section p {
-  @apply lg:text-lg;
 }
 
 .project-showcase {
-  @apply mt-10 lg:mt-12 flex flex-col gap-[4rem] lg:gap-[6rem];
+  @apply mt-10 lg:mt-12 flex flex-col gap-16 lg:gap-24;
 }
 
 .project-showcase h3 {
@@ -127,11 +45,11 @@ section p {
 }
 
 .project-image {
-  @apply rounded-md shadow-xl;
+  @apply rounded-md border;
 }
 
 .project-title {
-  @apply hover:underline decoration-teal-700 underline-offset-4;
+  @apply decoration-accent underline-offset-4;
 }
 
 .project-container {
@@ -146,12 +64,8 @@ section p {
   @apply text-base lg:text-lg;
 }
 
-.project-summary a {
-  @apply hover:underline;
-}
-
 .technologies span {
-  @apply text-slate-600 text-sm font-mono font-medium bg-white ring-[1px] ring-stone-300 rounded-md px-2 leading-8 mr-2 my-1 inline-block text-center;
+  @apply text-card-foreground text-sm font-mono font-medium bg-card ring-[1px] ring-border rounded-md px-2 leading-8 mr-2 my-1 inline-block text-center;
 }
 
 .polaroid-gallery {
@@ -159,11 +73,11 @@ section p {
 }
 
 .polaroid-container {
-  @apply p-2 border-[1px] h-full max-w-[300px] rounded-sm inline-block bg-white shadow-lg pointer-events-none;
+  @apply p-2 border h-full max-w-75 rounded-sm inline-block bg-white pointer-events-none;
 }
 
 .polaroid-container p {
-  @apply px-1 text-center !my-1;
+  @apply px-1 text-center my-1! text-black;
 }
 
 .polaroid {
@@ -185,10 +99,6 @@ section p {
   @apply absolute top-0 left-0 w-full h-full block rounded-sm;
 }
 
-.footer-container {
-  @apply max-w-screen-lg mx-auto flex flex-col lg:flex-row lg:items-center justify-between px-4 gap-10 lg:gap-0;
-}
-
 .testimonial-container {
   @apply flex flex-col gap-10 ml-0 lg:ml-1;
 }
@@ -199,11 +109,11 @@ section p {
 }
 
 .testimonial-person h3 {
-  @apply text-zinc-600 font-semibold text-xl m-0;
+  @apply font-semibold text-xl m-0;
 }
 
 .testimonial-person h4 {
-  @apply text-lg text-teal-700 font-medium m-0;
+  @apply text-lg font-medium m-0;
 }
 
 .testimonial {
@@ -211,5 +121,5 @@ section p {
 }
 
 .testimonial p {
-  @apply border-l-2 border-zinc-300 px-2 text-zinc-600;
+  @apply pl-2 border-l-2 border-foreground;
 }
