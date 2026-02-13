@@ -163,7 +163,7 @@ section p {
 }
 
 .polaroid-container p {
-  @apply px-1 text-center !text-3xl !my-1;
+  @apply px-1 text-center !my-1;
 }
 
 .polaroid {

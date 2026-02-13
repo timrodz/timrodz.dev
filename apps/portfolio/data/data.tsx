@@ -76,34 +76,6 @@ export const seo = {
 
 export const googleAnalyticsID = "UA-52663114-1";
 
-export const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  legalName: `${seo.legalName}`,
-  url: `${seo.url}`,
-  logo: `${seo.logo}`,
-  foundingDate: `${seo.foundingDate}`,
-  founders: [
-    {
-      "@type": "Person",
-      name: `${seo.legalName}`,
-    },
-  ],
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      email: `${seo.contact.email}`,
-      contactType: "customer service",
-    },
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: `${seo.address.city}`,
-    addressCountry: `${seo.address.country}`,
-  },
-  sameAs: socials.map(({ url }) => url),
-};
-
 export type ProjectType = {
   title: string;
   type: string;

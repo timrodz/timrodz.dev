@@ -1,18 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { TechStack } from "@repo/ui/components/tech-stack";
-import { projects, type ProjectType } from "data";
-import { useEffect, useState } from "react";
+import { projects, seo, type ProjectType } from "data";
 
 function Project({ project }: { project: ProjectType }) {
-  const [url, setUrl] = useState<string>();
-  useEffect(() => {
-    setUrl(`${window.origin}/projects/${project.slug}`);
-  }, [project.slug]);
-
-  if (!url) return null;
+  const url = `${seo.url}/projects/${project.slug}`;
 
   return (
     <div id={`project-${project.slug}`}>

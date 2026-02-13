@@ -1,4 +1,3 @@
-"use server";
 import { Footer } from "@repo/ui/components/footer";
 import { TechStack } from "@repo/ui/components/tech-stack";
 import { Metadata } from "next";

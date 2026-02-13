@@ -8,9 +8,8 @@ import {
   JetBrains_Mono as MonoFont,
   Geist as SansFont,
 } from "next/font/google";
-import Script from "next/script";
 
-import { googleAnalyticsID, structuredData } from "../data";
+import { googleAnalyticsID } from "../data";
 
 const sans = SansFont({
   variable: "--font-sans",
@@ -45,13 +44,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cx(sans.variable, mono.variable)}>
-      <Script
-        id="schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
       <GoogleAnalytics gaId={googleAnalyticsID} />
       <body className={"antialiased"}>{children}</body>
     </html>

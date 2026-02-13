@@ -1,5 +1,3 @@
-"use server";
-
 import { baseUrl } from "~/app/sitemap";
 import { getProjects } from "~/utils/mdx";
 import Image from "next/image";
@@ -76,35 +74,13 @@ export default async function Blog({ params }: Props) {
     notFound();
   }
 
-  const { metadata, content, slug } = project;
+  const { metadata, content } = project;
 
   const technologies =
     metadata.technologies?.split(",").map((s) => s.trim()) ?? [];
 
   return (
     <main>
-      {/*<script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: metadata.title,
-            datePublished: metadata.publishedAt,
-            dateModified: metadata.publishedAt,
-            description: metadata.type,
-            image: metadata.imageUrl
-              ? `${baseUrl}${metadata.imageUrl}`
-              : `/og?title=${encodeURIComponent(metadata.title)}`,
-            url: `${baseUrl}/posts/${slug}`,
-            author: {
-              "@type": "Person",
-              name: "Juan Rodríguez Morais",
-            },
-          }),
-        }}
-      />*/}
       <h1 className="title font-bold text-3xl md:text-5xl">{metadata.title}</h1>
       <hr />
       <div className="fmt-2 mb-8 flex flex-col gap-4 text-neutral-600 dark:text-neutral-300">

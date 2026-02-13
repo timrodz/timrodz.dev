@@ -1,2 +1,146 @@
 @import "tailwindcss";
 @import "@repo/tailwind-config";
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.blog-link div .blog-link-date {
+  @apply text-neutral-600 dark:text-neutral-400 tabular-nums font-mono;
+}
+
+.blog-link div .blog-link-title {
+  @apply text-teal-800 dark:text-neutral-300 tracking-tight font-semibold;
+}
+
+.blog-link div .blog-link-subtitle {
+  @apply text-neutral-500 dark:text-neutral-400 tracking-normal;
+}
+
+.blog-link:hover div .blog-link-title {
+  @apply text-teal-950 dark:text-neutral-100 transition-all;
+}
+
+.blog-link:hover div .blog-link-title span {
+  @apply underline decoration-teal-900 dark:decoration-teal-500 underline-offset-2 decoration-[0.1em];
+}
+
+.prose a {
+  @apply hover:underline underline-offset-2 decoration-teal-900 dark:decoration-teal-500 text-teal-800 hover:text-teal-950 dark:hover:text-white transition-all dark:text-white;
+}
+
+.prose .anchor:after {
+  @apply text-neutral-300 dark:text-neutral-500;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible no-underline;
+}
+
+.prose pre {
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+}
+
+.prose code {
+  @apply px-1 py-0.5 rounded-lg font-mono;
+}
+
+.prose pre code {
+  @apply p-0;
+  border: initial;
+  line-height: 1.5;
+}
+
+.prose code span {
+  font-weight: 500;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0 mb-6;
+}
+
+.prose p {
+  @apply my-4 md:text-lg text-zinc-700 dark:text-neutral-200;
+}
+
+.prose h1 {
+  @apply text-4xl font-bold mt-6 mb-2;
+}
+
+.prose h2 {
+  @apply text-3xl font-bold mt-6 mb-2 hover:underline decoration-teal-900 dark:decoration-neutral-500 decoration-[0.1em];
+}
+
+.prose h3 {
+  @apply text-2xl font-semibold mt-6 mb-2 hover:underline decoration-teal-900 dark:decoration-neutral-500 decoration-[0.1em];
+}
+
+.prose h4 {
+  @apply text-xl font-semibold mt-6 mb-2 hover:underline decoration-teal-900 dark:decoration-neutral-500 decoration-[0.1em];
+}
+
+.prose strong {
+  @apply font-medium;
+}
+
+.prose ul {
+  @apply list-disc pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose li {
+  @apply md:text-lg text-zinc-700 dark:text-neutral-200;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.title {
+  text-wrap: balance;
+}
+
+footer ul li a {
+  @apply font-mono;
+}

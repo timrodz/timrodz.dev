@@ -1,7 +1,6 @@
 import { About as CompAbout } from "@repo/ui/components/about";
 import { TitleName } from "@repo/ui/components/title";
 import Link from "next/link";
-
 import { SocialStack } from "@repo/ui/components/social-stack";
 import { socials } from "data";
 

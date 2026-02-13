@@ -1,8 +1,5 @@
-// import Image from "next/image";
-
-// // import { Reenie_Beanie } from "next/font/google";
-
-// const handwrittenFont = Reenie_Beanie({ weight: "400", subsets: ["latin"] });
+import Image from "next/image";
+import { cx } from "../utils/classNames";
 
 export interface PolaroidPhotoProps {
   source: string;
@@ -18,11 +15,11 @@ export function PolaroidPhoto({
   className,
 }: PolaroidPhotoProps) {
   return (
-    <div className={`polaroid-container ${className ?? ""}`}>
+    <div className={cx("polaroid-container", className)}>
       <div className="polaroid">
-        <img src={source} width={300} height={400} alt={alt} />
+        <Image src={source} width={300} height={400} alt={alt} />
       </div>
-      {/*<p className={handwrittenFont.className}>{description}</p>*/}
+      <p className="text-xs">{description}</p>
     </div>
   );
 }

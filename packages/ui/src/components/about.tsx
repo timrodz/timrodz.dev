@@ -1,5 +1,4 @@
 import { PolaroidPhoto } from "./polaroid";
-import { Subtitle } from "./subtitle";
 import { Title } from "./title";
 
 export function About() {
@@ -29,7 +28,7 @@ export function About() {
           matters.`}
         </p>
       </div>
-      <p className="!mt-6">
+      <p className="mt-6!">
         {`P.S. I'm definitely not a robot 🤖 To prove it, here are some pictures
         of me over the past few years!`}
       </p>
@@ -38,19 +37,19 @@ export function About() {
           source="/pictures/mexico.webp"
           alt="Picture of me in a Café in Méxi co City, México"
           description="México City 2023"
-          className="rotate-[-2deg]"
+          className="-rotate-2"
         />
         <PolaroidPhoto
           source="/pictures/queenstown.webp"
           alt="Picture of me with a mountain bike in Queenstown, New Zealand"
           description="Queenstown, NZ 2021"
-          className="rotate-[1deg]"
+          className="rotate-1"
         />
         <PolaroidPhoto
           source="/pictures/yosemite.webp"
           alt="Picture of me around Yosemite, California"
           description="California 2019"
-          className="rotate-[2deg]"
+          className="rotate-2"
         />
       </div>
     </div>

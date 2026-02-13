@@ -66,32 +66,10 @@ export default async function Blog({ params }: Props) {
     notFound();
   }
 
-  const { metadata, content, slug } = post;
+  const { metadata, content } = post;
 
   return (
     <main>
-      {/*<script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: metadata.title,
-            datePublished: metadata.publishedAt,
-            dateModified: metadata.publishedAt,
-            description: metadata.summary,
-            image: metadata.image
-              ? `${baseUrl}${metadata.image}`
-              : `/og?title=${encodeURIComponent(metadata.title)}`,
-            url: `${baseUrl}/posts/${slug}`,
-            author: {
-              "@type": "Person",
-              name: "Juan Rodríguez Morais",
-            },
-          }),
-        }}
-      />*/}
       <h1 className="title font-bold text-3xl md:text-5xl">{metadata.title}</h1>
       <hr />
       <div className="flex justify-between items-center mt-2 mb-8">

@@ -1,30 +1,22 @@
 import Link from "next/link";
 
-const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/posts": {
-    name: "blog posts",
-  },
-  "/projects": {
-    name: "projects",
-  },
-  "/about": {
-    name: "about",
-  },
+const navItems: Record<string, string> = {
+  home: "/",
+  "blog posts": "/posts",
+  projects: "/projects",
+  about: "/about",
 };
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
+    <aside className="-ml-2 mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative text-neutral-600 dark:text-neutral-300"
           id="nav"
         >
           <div className="flex flex-row space-x-0">
-            {Object.entries(navItems).map(([path, { name }]) => {
+            {Object.entries(navItems).map(([name, path]) => {
               return (
                 <Link
                   key={path}
