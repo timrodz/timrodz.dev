@@ -1,5 +1,5 @@
 import { About } from "@repo/ui/components/about";
-import { Title } from "@repo/ui/components/title copy";
+import { Title } from "@repo/ui/components/title";
 import { WhoAmI } from "@repo/ui/components/whoami";
 import { Metadata } from "next";
 
