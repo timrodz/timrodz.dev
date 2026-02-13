@@ -1,0 +1,21 @@
+import { ImageResponse } from "next/og";
+
+export function GET(request: Request) {
+  const url = new URL(request.url);
+  const title = url.searchParams.get("title") || "Juan Rodríguez Morais";
+
+  return new ImageResponse(
+    <div className="flex flex-col w-full h-full items-center justify-center bg-teal-100">
+      <div className="flex flex-col w-full py-12 px-6 md:items-center justify-center p-8 text-4xl text-teal-800">
+        <h2 className="flex flex-col text-7xl text-teal-700 font-bold text-center">
+          {title}
+        </h2>
+        <h3>Juan Rodríguez Morais - Blog</h3>
+      </div>
+    </div>,
+    {
+      width: 1200,
+      height: 630,
+    },
+  );
+}

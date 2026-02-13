@@ -9,7 +9,9 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./*": "./dist/*.js"
+    "./*": "./dist/*.js",
+    "./components/*": "./dist/components/*.js",
+    "./utils/*": "./dist/utils/*.js"
   },
   "license": "MIT",
   "scripts": {
@@ -21,7 +23,7 @@
     "lint": "eslint src --max-warnings 0"
   },
   "peerDependencies": {
-    "react": "^19"
+    "react": "^19.2.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
@@ -32,5 +34,8 @@
     "eslint": "^9.39.1",
     "tailwindcss": "^4.1.5",
     "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "lucide-react": "^0.563.0"
   }
 }
