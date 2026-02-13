@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-const GOOGLE_ANALYTICS_ID = "UA-52663114-1";
+const GOOGLE_ANALYTICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export default function RootLayout({
   children,
@@ -47,7 +47,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={fontClassNames()}>
-      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+      {GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />}
       <body className="antialiased">
         <ThemeProvider
           attribute="class"

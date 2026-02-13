@@ -4,7 +4,6 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { cx } from "@repo/ui/utils/classNames";
 import type { Metadata } from "next";
-import { GOOGLE_ANALYTICS_ID } from "~/data";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
 import { fontClassNames } from "~/app/fonts";
 
@@ -22,6 +21,8 @@ export const metadata: Metadata = {
   ],
 };
 
+const GOOGLE_ANALYTICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={cx(fontClassNames())}>
-      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+      {GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />}
       <body className={"antialiased"}>
         <ThemeProvider
           attribute="class"

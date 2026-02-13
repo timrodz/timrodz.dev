@@ -75,8 +75,6 @@ export const seo = {
   foundingDate: "2019",
 };
 
-export const GOOGLE_ANALYTICS_ID = "UA-52663114-1";
-
 export type ProjectType = {
   title: string;
   type: string;
