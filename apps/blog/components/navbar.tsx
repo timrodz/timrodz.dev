@@ -1,3 +1,4 @@
+import { LinkCTA } from "@repo/ui/components/cta";
 import Link from "next/link";
 
 const NAV_ITEMS: { name: string; href: string }[] = [
@@ -6,16 +7,12 @@ const NAV_ITEMS: { name: string; href: string }[] = [
   { name: "projects", href: "/projects" },
   { name: "about", href: "/about" },
   { name: "uses", href: "/uses" },
-  { name: "resume", href: "/resume" },
 ];
 
 export function Navbar() {
   return (
-    <nav
-      className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative text-neutral-600 dark:text-neutral-300"
-      id="nav"
-    >
-      <div className="flex flex-col sm:flex-row gap-4">
+    <nav>
+      <div className="flex flex-wrap gap-4">
         {NAV_ITEMS.map(({ name, href: href }) => {
           return (
             <Link
@@ -27,6 +24,12 @@ export function Navbar() {
             </Link>
           );
         })}
+        <LinkCTA
+          href="/resume-juan-rodriguez.pdf"
+          target="_blank"
+          subtle
+          content="resume"
+        />
       </div>
     </nav>
   );

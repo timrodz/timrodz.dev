@@ -8,6 +8,7 @@ interface CTAProps extends ComponentProps<"a"> {
   subtle?: boolean;
   label?: string;
   icon?: LucideIcon | null;
+  iconDirection?: "left" | "right";
 }
 
 export function LinkCTA({
@@ -15,6 +16,7 @@ export function LinkCTA({
   label,
   icon,
   className,
+  iconDirection = "left",
   ...props
 }: CTAProps) {
   const IconComponent = icon !== undefined ? icon : ArrowUpRightIcon;
@@ -27,10 +29,13 @@ export function LinkCTA({
       )}
       {...props}
     >
-      {IconComponent && (
+      {iconDirection === "left" && IconComponent && (
         <IconComponent className="size-4 inline-block mr-1.5 md:mr-1" />
       )}
       {label ?? `Learn more`}
+      {iconDirection === "right" && IconComponent && (
+        <IconComponent className="size-4 inline-block ml-1.5 md:ml-1" />
+      )}
     </Link>
   );
 }

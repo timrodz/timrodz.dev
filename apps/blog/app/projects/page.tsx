@@ -1,6 +1,7 @@
-import { Projects } from "~/components/projects";
+import { ContentLinks } from "~/components/content-links";
 import { Metadata } from "next";
 import { Title } from "@repo/ui/components/title";
+import { getProjects } from "~/utils/mdx";
 
 export const metadata: Metadata = {
   title: "Posts",
@@ -8,11 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const data = getProjects();
   return (
     <main>
       <Title>Projects 🌿</Title>
       <hr />
-      <Projects />
+      <ContentLinks data={data} />
     </main>
   );
 }

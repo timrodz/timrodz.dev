@@ -8,9 +8,8 @@ import { projects, ProjectType, socials } from "data";
 import { SocialStack } from "@repo/ui/components/social-stack";
 import { PageContainer } from "~/components/page-container";
 
-import { PageNotFoundError } from "next/dist/shared/lib/utils";
-import { ArrowLeftIcon, ArrowUpRightIcon } from "lucide-react";
-import { LinkCTA } from "@repo/ui/components/cta";
+import { ArrowLeftIcon } from "lucide-react";
+import { LinkCTA } from "@repo/ui/components/link-cta";
 
 type Props = {
   params: { slug: string };

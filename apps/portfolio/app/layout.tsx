@@ -4,25 +4,9 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { cx } from "@repo/ui/utils/classNames";
 import type { Metadata } from "next";
-import {
-  JetBrains_Mono as MonoFont,
-  Geist as SansFont,
-} from "next/font/google";
-
-import { GOOGLE_ANALYTICS_ID } from "../data";
+import { GOOGLE_ANALYTICS_ID } from "~/data";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
-
-const sans = SansFont({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const mono = MonoFont({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500"],
-});
+import { fontClassNames } from "~/app/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://timrodz.dev"),
@@ -44,11 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cx(sans.variable, mono.variable)}
-    >
+    <html lang="en" suppressHydrationWarning className={cx(fontClassNames())}>
       <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
       <body className={"antialiased"}>
         <ThemeProvider

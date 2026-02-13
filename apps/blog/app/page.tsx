@@ -1,25 +1,22 @@
 import { Subtitle } from "@repo/ui/components/subtitle";
 import { TitleName } from "@repo/ui/components/title";
-import { BlogPosts } from "~/components/posts";
-import { Projects } from "~/components/projects";
+import { WhoAmI } from "@repo/ui/components/whoami";
+import { ContentLinks } from "~/components/content-links";
+import { getBlogPosts, getProjects } from "~/utils/mdx";
 
 export default function Page() {
+  const blogPosts = getBlogPosts();
+  const projects = getProjects();
   return (
     <main>
       <TitleName />
       <hr />
-      <p className="mb-4">
-        {`I'm a Software Engineer with 7+ years of professional experience, primarily
-          focusing on SaaS products for small to medium-sized businesses (including startups).
-          I'm currently located in Auckland, New Zealand, working with The Boundary as a Senior Software Engineer.
-          My preferred tech stack is TypeScript, React, Node, AWS, and Elixir + Phoenix. I also
-          have experience with leading developer small teams.`}
-      </p>
+      <WhoAmI />
       <div className="my-8">
         <Subtitle>Blog posts</Subtitle>
-        <BlogPosts />
+        <ContentLinks data={blogPosts} />
         <Subtitle>Projects</Subtitle>
-        <Projects />
+        <ContentLinks data={projects} />
       </div>
     </main>
   );

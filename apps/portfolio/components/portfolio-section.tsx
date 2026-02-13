@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TechStack } from "@repo/ui/components/tech-stack";
 import { projects, ProjectType } from "data";
-import { LinkCTA } from "@repo/ui/components/cta";
+import { LinkCTA } from "@repo/ui/components/link-cta";
 
 function Project({ project }: { project: ProjectType }) {
   const url = `/projects/${project.slug}`;
@@ -29,7 +29,7 @@ function Project({ project }: { project: ProjectType }) {
         </div>
         <div className="project-details">
           <div className="project-summary">{project.summary}</div>
-          <LinkCTA href={url} subtle />
+          <LinkCTA href={url} subtle className="my-4" />
           <TechStack technologies={project.technologies} />
         </div>
       </div>

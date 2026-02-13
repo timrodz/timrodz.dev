@@ -3,28 +3,12 @@ import "./globals.css";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Footer } from "@repo/ui/components/footer";
-import { cx } from "@repo/ui/utils/classNames";
 import type { Metadata } from "next";
-import {
-  JetBrains_Mono as MonoFont,
-  Geist as SansFont,
-} from "next/font/google";
 import { Navbar } from "~/components/navbar";
-import { baseUrl } from "./sitemap";
+import { baseUrl } from "~/app/sitemap";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
 import { LayoutContainer } from "~/components/layout-container";
-
-// Font files can be colocated inside of `pages`
-const sans = SansFont({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const mono = MonoFont({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
-});
+import { fontClassNames } from "~/app/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -62,11 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(sans.variable, mono.variable)}
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning className={fontClassNames()}>
       <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
       <body className="antialiased">
         <ThemeProvider

@@ -1,12 +1,12 @@
 import { baseUrl } from "~/app/sitemap";
 import { getProjects } from "~/utils/mdx";
 import Image from "next/image";
-import Link from "next/link";
+
 import { notFound } from "next/navigation";
 import { CustomMDX } from "~/components/mdx";
 import { TechStack } from "@repo/ui/components/tech-stack";
 import { Metadata } from "next";
-import { LinkCTA } from "@repo/ui/components/cta";
+import { LinkCTA } from "@repo/ui/components/link-cta";
 
 export async function generateStaticParams() {
   const projects = getProjects();
@@ -84,7 +84,7 @@ export default async function Blog({ params }: Props) {
     <main>
       <h1 className="title font-bold text-3xl md:text-5xl">{metadata.title}</h1>
       <hr />
-      <div className="fmt-2 mb-8 flex flex-col gap-4 text-neutral-600 dark:text-neutral-300">
+      <div className="fmt-2 mb-8 flex flex-col gap-4 ">
         <p className="text-xl font-medium">Overview</p>
         <ul className="list-disc ml-6">
           <li>

@@ -1,14 +1,20 @@
 import fs from "fs";
 import path from "path";
 
-type BlogPostMetadata = {
+export interface Metadata<T> {
+  metadata: T;
+  slug: string;
+  content: string;
+}
+
+export interface BlogPostMetadata {
   title: string;
   publishedAt: string;
   summary: string;
   image?: string;
-};
+}
 
-type ProjectMetadata = {
+export interface ProjectMetadata {
   title: string;
   publishedAt: string;
   summary?: string;
@@ -23,7 +29,7 @@ type ProjectMetadata = {
   technologies?: string;
   clientName: string;
   role: string;
-};
+}
 
 function parseFrontmatter<T>(fileContent: string): {
   metadata: T;
@@ -59,7 +65,7 @@ function readMDXFile<T>(filePath: string) {
   return parseFrontmatter<T>(rawContent);
 }
 
-function getMDXData<T>(dir: string) {
+function getMDXData<T>(dir: string): Metadata<T>[] {
   const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile<T>(path.join(dir, file));
@@ -73,11 +79,11 @@ function getMDXData<T>(dir: string) {
   });
 }
 
-export function getBlogPosts() {
+export function getBlogPosts(): Metadata<BlogPostMetadata>[] {
   return getMDXData<BlogPostMetadata>(path.join(process.cwd(), "blog-posts"));
 }
 
-export function getProjects() {
+export function getProjects(): Metadata<ProjectMetadata>[] {
   return getMDXData<ProjectMetadata>(path.join(process.cwd(), "projects"));
 }
 
