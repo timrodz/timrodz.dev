@@ -12,11 +12,15 @@ export default function Page() {
       <TitleName />
       <hr />
       <WhoAmI />
-      <div className="my-8">
-        <Subtitle>Blog posts</Subtitle>
-        <ContentLinks data={blogPosts} type="posts" />
-        <Subtitle>Projects</Subtitle>
-        <ContentLinks data={projects} type="projects" />
+      <div className="my-6 space-y-6">
+        <div>
+          <Subtitle>Projects</Subtitle>
+          <ContentLinks data={projects} type="projects" />
+        </div>
+        <div>
+          <Subtitle>Blog posts</Subtitle>
+          <ContentLinks data={blogPosts} type="posts" />
+        </div>
       </div>
     </main>
   );
