@@ -15,10 +15,11 @@ export function AboutSection() {
       <LinkCTA
         href={"/resume-juan-rodriguez.pdf"}
         target="_blank"
-        label="View my resume 🦀"
         icon={DownloadIcon}
         className="mt-4"
-      />
+      >
+        {`View my resume 🦀`}
+      </LinkCTA>
       <SocialStack socials={socials} />
       <About />
     </section>

@@ -62,7 +62,9 @@ export default async function Page({ params }: Props) {
       <PageContainer>
         <div className="flex flex-col items-center justify-center gap-20 text-center">
           <h2>Project not found</h2>
-          <LinkCTA href="/" label="Go back to main site" icon={ArrowLeftIcon} />
+          <LinkCTA href="/" icon={ArrowLeftIcon}>
+            Back to main site
+          </LinkCTA>
           <div className="flex flex-col items-center justify-center gap-2">
             <h3>Or get in touch 👋</h3>
             <SocialStack socials={socials} />
@@ -103,11 +105,9 @@ export default async function Page({ params }: Props) {
             </li>
           )}
         </ul>
-        <LinkCTA
-          href={project.url}
-          target="_blank"
-          label="Project website / demo"
-        />
+        <LinkCTA href={project.url} target="_blank">
+          Project website / demo
+        </LinkCTA>
       </section>
       <section>
         <h3>Summary</h3>

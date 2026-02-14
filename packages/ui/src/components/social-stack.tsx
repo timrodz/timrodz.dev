@@ -14,7 +14,9 @@ export function SocialStack({ socials = [] }: SocialsProps) {
   return (
     <div className="my-4 flex flex-wrap gap-2 md:gap-4">
       {socials.map(({ name, href }) => (
-        <LinkCTA key={href} href={href} label={name} subtle />
+        <LinkCTA key={href} href={href} subtle>
+          {name}
+        </LinkCTA>
       ))}
     </div>
   );

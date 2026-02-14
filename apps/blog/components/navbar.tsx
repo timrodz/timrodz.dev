@@ -24,12 +24,9 @@ export function Navbar() {
             </Link>
           );
         })}
-        <LinkCTA
-          href="/resume-juan-rodriguez.pdf"
-          target="_blank"
-          subtle
-          content="resume"
-        />
+        <LinkCTA href="/resume-juan-rodriguez.pdf" target="_blank" subtle>
+          resume
+        </LinkCTA>
       </div>
     </nav>
   );

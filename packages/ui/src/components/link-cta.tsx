@@ -6,17 +6,16 @@ import Link from "next/link";
 interface CTAProps extends ComponentProps<"a"> {
   href: string;
   subtle?: boolean;
-  label?: string;
   icon?: LucideIcon | null;
   iconDirection?: "left" | "right";
 }
 
 export function LinkCTA({
   subtle,
-  label,
   icon,
   className,
   iconDirection = "left",
+  children,
   ...props
 }: CTAProps) {
   const IconComponent = icon !== undefined ? icon : ArrowUpRightIcon;
@@ -32,7 +31,7 @@ export function LinkCTA({
       {iconDirection === "left" && IconComponent && (
         <IconComponent className="size-4 inline-block mr-1.5 md:mr-1" />
       )}
-      {label ?? `Learn more`}
+      {children ?? `Learn more`}
       {iconDirection === "right" && IconComponent && (
         <IconComponent className="size-4 inline-block ml-1.5 md:ml-1" />
       )}
