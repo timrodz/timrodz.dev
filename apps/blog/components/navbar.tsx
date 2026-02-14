@@ -24,6 +24,9 @@ export function Navbar() {
             </Link>
           );
         })}
+        <LinkCTA href="https://www.timrodz.dev" target="_blank" subtle>
+          portfolio
+        </LinkCTA>
         <LinkCTA href="/resume-juan-rodriguez.pdf" target="_blank" subtle>
           resume
         </LinkCTA>
