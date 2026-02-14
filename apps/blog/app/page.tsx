@@ -14,9 +14,9 @@ export default function Page() {
       <WhoAmI />
       <div className="my-8">
         <Subtitle>Blog posts</Subtitle>
-        <ContentLinks data={blogPosts} />
+        <ContentLinks data={blogPosts} type="posts" />
         <Subtitle>Projects</Subtitle>
-        <ContentLinks data={projects} />
+        <ContentLinks data={projects} type="projects" />
       </div>
     </main>
   );

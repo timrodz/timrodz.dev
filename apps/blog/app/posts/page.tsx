@@ -14,7 +14,7 @@ export default function Page() {
     <main>
       <Title>Blog posts 🌱</Title>
       <hr />
-      <ContentLinks data={data} />
+      <ContentLinks data={data} type="posts" />
     </main>
   );
 }
