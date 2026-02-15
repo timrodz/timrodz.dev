@@ -115,10 +115,7 @@ export default async function Blog({ params }: Props) {
           )}
         </ul>
         {technologies && (
-          <div>
-            <p className="mb-2 text-xl font-medium">Technology stack</p>
-            <TechStack technologies={technologies} />
-          </div>
+          <TechStack label="Technology stack" technologies={technologies} />
         )}
 
         {metadata.imageUrl && (

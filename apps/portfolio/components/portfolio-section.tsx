@@ -11,7 +11,7 @@ function Project({ project }: { project: ProjectType }) {
     <div id={`project-${project.slug}`}>
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
         <h3>
-          <Link href={url} target="_blank" className="project-title ">
+          <Link href={url} className="project-title ">
             {project.title}
           </Link>
         </h3>
@@ -41,7 +41,6 @@ export function PortfolioSection() {
   return (
     <section id="projects">
       <h2>Professional Portfolio</h2>
-      <hr />
       <p>
         {
           "Below are exciting projects I have created and/or contributed to during my career. Due to the nature of some industries, certain projects are under NDA agreements, so I can't show everything I've worked on."

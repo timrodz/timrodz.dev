@@ -1,3 +1,4 @@
+import { cx } from "../utils/classNames";
 import { LinkCTA } from "./link-cta";
 
 export interface SocialLink {
@@ -10,9 +11,9 @@ interface SocialsProps {
   className?: string;
 }
 
-export function SocialStack({ socials = [] }: SocialsProps) {
+export function SocialStack({ socials = [], className }: SocialsProps) {
   return (
-    <div className="my-4 flex flex-wrap gap-2 md:gap-4">
+    <div className={cx("my-4 flex flex-wrap gap-2 md:gap-4", className)}>
       {socials.map(({ name, href }) => (
         <LinkCTA key={href} href={href} subtle>
           {name}

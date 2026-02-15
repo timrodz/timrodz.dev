@@ -2,7 +2,7 @@ export function WhoAmI() {
   return (
     <div>
       <p>
-        {`I'm a product engineer based in Auckland, New Zealand. I like owning work end-to-end within my engineering realm. Currently working at `}
+        {`Hi! I'm a product engineer based in Auckland, New Zealand. I like owning work end-to-end within my engineering realm. Currently working at `}
         <a
           href="https://www.the-boundary.com/"
           target="_blank"

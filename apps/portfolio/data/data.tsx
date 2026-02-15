@@ -18,23 +18,6 @@ export enum Technology {
   Flask = "Flask",
 }
 
-export const TechnologyExternalUrl: Record<Technology, string> = {
-  [Technology.NextJS]: "https://nextjs.org/",
-  [Technology.Unity]: "https://unity.com/",
-  [Technology.Csharp]: "https://learn.microsoft.com/en-us/dotnet/csharp/",
-  [Technology.AWS]: "https://aws.amazon.com/",
-  [Technology.TypeScript]: "https://www.typescriptlang.org/",
-  [Technology.React]: "https://react.dev/",
-  [Technology.ExpressJS]: "https://expressjs.com/",
-  [Technology.Azure]: "https://azure.microsoft.com/en-us",
-  [Technology.PostgreSQL]: "https://www.postgresql.org/",
-  [Technology.Python]: "https://www.python.org/",
-  [Technology.Elixir]: "https://elixir-lang.org/",
-  [Technology.Phoenix]: "https://www.phoenixframework.org/",
-  [Technology.TailwindCSS]: "https://tailwindcss.com/",
-  [Technology.Flask]: "",
-};
-
 export const socials: SocialLink[] = [
   {
     name: "Blog",

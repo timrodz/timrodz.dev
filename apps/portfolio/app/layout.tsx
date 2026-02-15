@@ -6,11 +6,14 @@ import { cx } from "@repo/ui/utils/classNames";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
 import { fontClassNames } from "~/app/fonts";
+import { LayoutContainer } from "@repo/ui/components/layout-container";
+import { Footer } from "@repo/ui/components/footer";
+import { socials } from "~/data";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://timrodz.dev"),
   title: "Juan Rodríguez Morais - Portfolio",
-  description: `Juan is a Software Engineer with 6+ years of professional experience, primarily
+  description: `Juan is a Software Engineer with 8 years of professional experience, primarily
   focusing on SaaS products for small to medium-sized businesses (including startups). He is located in
   Auckland, New Zealand, working with The Boundary as a Senior Software Engineer. Juan's preferred tech
   stack is TypeScript, React, Node, AWS, and Elixir + Phoenix. He also has experience with leading
@@ -38,7 +41,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LayoutContainer>
+            {children}
+            <Footer socialLinks={socials} />
+          </LayoutContainer>
         </ThemeProvider>
       </body>
     </html>

@@ -19,7 +19,7 @@ export function PolaroidPhoto({
       <div className="polaroid">
         <Image src={source} width={300} height={400} alt={alt} />
       </div>
-      <p className="text-xs">{description}</p>
+      <p className="text-sm font-serif tracking-wide">{description}</p>
     </div>
   );
 }

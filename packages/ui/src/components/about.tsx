@@ -27,8 +27,8 @@ export function About() {
         </p>
       </div>
       <div>
-        <p>I love working with these technologies:</p>
         <TechStack
+          label="This is my preferred technology stack 🌱"
           technologies={[
             "TypeScript",
             "Python",

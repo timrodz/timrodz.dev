@@ -14,7 +14,7 @@
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.9341 0.0153 90.239);
   --muted-foreground: oklch(0.6059 0.0075 97.4233);
-  --accent: oklch(0.9245 0.0138 92.9892);
+  --accent: oklch(0.95 0.01 85.9892);
   --accent-foreground: oklch(0.2671 0.0196 98.939);
   --destructive: oklch(0.1908 0.002 106.5859);
   --destructive-foreground: oklch(1 0 0);
@@ -216,10 +216,6 @@ hr {
 }
 
 .cta-subtle {
-}
-
-.technology {
-  @apply text-card-foreground text-sm font-mono font-medium bg-card ring-1 ring-border rounded px-2 leading-8 mr-2 my-1 inline-block text-center;
 }
 
 .polaroid-gallery {

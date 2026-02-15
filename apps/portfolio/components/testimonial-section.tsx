@@ -5,7 +5,6 @@ export function TestimonialSection() {
   return (
     <section id="testimonials">
       <h2>Testimonials</h2>
-      <hr />
       <p>
         {`Throughout my career, I've had the privilege of working with many
         talented people. Working with them has yielded wonderful experiences and

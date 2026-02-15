@@ -4,10 +4,10 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Footer } from "@repo/ui/components/footer";
 import type { Metadata } from "next";
-import { Navbar } from "~/components/navbar";
+import { Navbar } from "@repo/ui/components/navbar";
 import { baseUrl } from "~/app/sitemap";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
-import { LayoutContainer } from "~/components/layout-container";
+import { LayoutContainer } from "@repo/ui/components/layout-container";
 import { fontClassNames } from "~/app/fonts";
 
 export const metadata: Metadata = {
